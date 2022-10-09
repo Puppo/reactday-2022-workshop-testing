@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { gitHubService } from '../../services';
+import { Loader, Notification, UserCard } from '../../components';
 import { arrayUtils } from '../../utils';
 import './Search.scss';
+import { useSearchStore } from './store/search.store';
 
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState('')
   const isButtonDisabled = searchTerm.length < 3;
-  const [usersChunk, setUsersChunk] = useState<Array<gitHubService.GitHubUser[]>>([])
+  const { search: performSearch, loading, error } = useSearchStore()
+  const usersChunk = useSearchStore(state => arrayUtils.sliceIntoChunks(state.users, 4))
+  const isShowUserOk = useSearchStore(state => !state.error && !state.loading)
 
   const search: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
-    const usersSearchResult = await gitHubService.searchUsers(searchTerm);
-    setUsersChunk(arrayUtils.sliceIntoChunks(usersSearchResult.items, 4));
+    if (!isButtonDisabled) performSearch(searchTerm);
   }
 
   return (
@@ -33,30 +34,15 @@ export default function Search() {
         </div>
       </form>
 
-
-      <div className="Search-results">
+      {loading && <Loader />}
+      {error && <Notification type='error' text={error} />}
+      {isShowUserOk && <div className="Search-results">
         {usersChunk.map((users, idx) => <div className="columns" key={idx}>
-          {users.map(user => <div className="column is-3" key={user.login}>
-            <div className='card'>
-              <div className="card-content">
-                <div className="media">
-                  <div className="media-left">
-                    <figure className="image is-48x48">
-                      <img src={user.avatar_url} alt={user.login} />
-                    </figure>
-                  </div>
-                  <div className="media-content">
-                    <p className="title is-4">{user.login}</p>
-                    <p className="subtitle is-6">
-                      <Link to={`/${user.login}/repositories`}>@{user.login}</Link>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {users.map(({ username, avatar }) => <div className="column is-3" key={username}>
+            <UserCard key={username} username={username} avatar={avatar} />
           </div>)}
         </div>)}
-      </div>
+      </div>}
     </div>
   )
 }

@@ -11,5 +11,7 @@ export const searchUsers = async (query: string): Promise<UserSearchResult> => {
   const response = await fetch(
     `https://api.github.com/search/users?q=${query}`
   );
+  if (!response.ok) throw new Error("Failed to fetch users");
+
   return response.json();
 };
