@@ -15,3 +15,19 @@ export const searchUsers = async (query: string): Promise<UserSearchResult> => {
 
   return response.json();
 };
+
+export type Repository = {
+  name: string;
+  description: string;
+};
+
+export const getRepositoriesByUser = async (
+  username: string
+): Promise<Repository[]> => {
+  const response = await fetch(
+    `https://api.github.com/users/${username}/repos`
+  );
+  if (!response.ok) throw new Error("Failed to fetch repositories");
+
+  return response.json();
+};
