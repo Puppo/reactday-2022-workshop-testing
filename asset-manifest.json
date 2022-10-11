@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/reactday-2022-workshop-testing/static/css/main.c6601e7b.css",
-    "main.js": "/reactday-2022-workshop-testing/static/js/main.fc163dfa.js",
+    "main.js": "/reactday-2022-workshop-testing/static/js/main.8b742745.js",
     "static/js/787.80298552.chunk.js": "/reactday-2022-workshop-testing/static/js/787.80298552.chunk.js",
     "static/media/logo.svg": "/reactday-2022-workshop-testing/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/reactday-2022-workshop-testing/index.html",
     "main.c6601e7b.css.map": "/reactday-2022-workshop-testing/static/css/main.c6601e7b.css.map",
-    "main.fc163dfa.js.map": "/reactday-2022-workshop-testing/static/js/main.fc163dfa.js.map",
+    "main.8b742745.js.map": "/reactday-2022-workshop-testing/static/js/main.8b742745.js.map",
     "787.80298552.chunk.js.map": "/reactday-2022-workshop-testing/static/js/787.80298552.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c6601e7b.css",
-    "static/js/main.fc163dfa.js"
+    "static/js/main.8b742745.js"
   ]
 }
