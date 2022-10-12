@@ -1,11 +1,6 @@
 import { rest } from "msw";
 import { setupServer } from "msw/node";
-import {
-  getRepositoriesByUser,
-  Repository,
-  searchUsers,
-  UserSearchResult,
-} from "./github.service";
+import { searchUsers, UserSearchResult } from "./github.service";
 
 describe("GitHubService", () => {
   describe("searchUsers", () => {
@@ -73,64 +68,13 @@ describe("GitHubService", () => {
   });
 
   describe("getRepositoriesByUser", () => {
-    const repositoriesMock = (user: string): Repository[] => [
-      {
-        name: `${user}-repo-1`,
-        description: `${user}-repo-1-description`,
-      },
-      {
-        name: `${user}-repo-2`,
-        description: `${user}-repo-2-description`,
-      },
-      {
-        name: `${user}-repo-3`,
-        description: `${user}-repo-3-description`,
-      },
-    ];
-    const mockHttpRequest = (user: string) => {
-      return rest.get(
-        `https://api.github.com/users/${user}/repos`,
-        (req, res, ctx) => {
-          return res(ctx.json(repositoriesMock(user)));
-        }
-      );
-    };
-    const server = setupServer(mockHttpRequest("test"));
+    it.todo("should return the correct result");
 
-    beforeAll(() => server.listen());
-    afterEach(() => server.resetHandlers());
-    afterAll(() => server.close());
-
-    it("should return the correct result", () => {
-      const expectedResult = repositoriesMock("test");
-      return expect(getRepositoriesByUser("test")).resolves.toEqual(
-        expectedResult
-      );
-    });
-
-    it.each`
-      user      | expected
-      ${"test"} | ${repositoriesMock("test")}
-      ${"foo"}  | ${repositoriesMock("foo")}
-      ${"bar"}  | ${repositoriesMock("bar")}
-    `(
-      "should call the api with the user $user and return the expected $expected",
-      ({ user, expected }: { user: string; expected: Repository[] }) => {
-        server.use(mockHttpRequest(user));
-
-        return expect(getRepositoriesByUser(user)).resolves.toEqual(expected);
-      }
+    it.todo(
+      "should call the api with the user $user and return the expected $expected"
     );
 
-    it("should throw an error if the serve respond with the code 500", () => {
-      // override initial "GET https://api.github.com/users/test/repos" request handler
-      server.use(
-        rest.get(`https://api.github.com/users/test/repos`, (req, res, ctx) => {
-          return res(ctx.status(500));
-        })
-      );
-      return expect(getRepositoriesByUser("test")).rejects.toThrow();
-    });
+    it.todo("should throw an error if the serve respond with the code 500");
   });
 });
 
