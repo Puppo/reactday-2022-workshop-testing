@@ -1,46 +1,12 @@
-# Getting Started with Create React App
+# React Day 2022 - Unit Testing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+La nostra mezza giornata di workshop dedicata allo unit testing con React.
 
-## Available Scripts
+## Come usare il repository
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Fork and Clone del repository
+2. Per ogni sezione c'è un branch dedicato da dove partire per seguire il workshop
+3. Ogni sezione ha implementate delle nuove funzionalità e ho già predisposto dei test in .todo in modo da andare a scriverli
+4. Segui con me la lezione e se vuoi scrivere i test da solo puoi farlo partendo dai branch dedicati, i branch che non terminano senza _-final_ sono quelli pronti per gli esercizi
+5. Se ti perdi o se non vuoi scrivere tutti i test puoi sempre partire dalla sezione successiva o guardare i risultati nei branch finali (quelli che terminano con _-final_)
+6. Goditi il workshop e non esitare ad alzare la mano se hai domande o dubbi, siamo qui per imparare insieme senza nessuna paura di sbagliare o di essere giudicati
