@@ -2,6 +2,10 @@
 
 La nostra mezza giornata di workshop dedicata allo unit testing con React.
 
+## Slide
+
+- [Unit Testing](https://speakerdeck.com/puppo/reactday-2022-unit-testing)
+
 ## Come usare il repository
 
 1. Fork and Clone del repository
